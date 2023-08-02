@@ -46,5 +46,3 @@
 
 ## CARTERA DE VALORES (EN CONSTRUCCIÓN)
 - Genera el número de títulos en relación al fondo de inversión (inversión / cotización).
-
-si
