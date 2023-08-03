@@ -35,7 +35,7 @@
 - Genera un porcentaje de probabilidad de éxito de la inversión.
 - Genera un porcentaje de ganancias en caso de que sea exitosa la inversión.
 - Genera los días a invertir.
-- Almacena la fecha de vencimiento en relación al tiempo.
+- Almacena la fecha de vencimiento.
 
 ## CLIENTES
 - Almacena el nombre.
@@ -44,6 +44,7 @@
 - Almacena el teléfono.
 - Almacena la dirección.
 
-## CARTERA DE VALORES (EN CONSTRUCCIÓN)
+## CARTERA DE VALORES
 - Genera el número de títulos en relación al fondo de inversión (inversión / cotización).
-- Generara un precio de cotización al azar.
+- Generara un precio de cotización al azar en relación a la inversión aportada.
+- Genera un porcentaje en relación a la cotización ((cotización * 100) / inversión). 
