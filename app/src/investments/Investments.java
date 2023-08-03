@@ -38,7 +38,7 @@ public class Investments {
     }
 
     public ResultSet getInvertion(int idClient) {
-        ResultSet result = new Query("SELECT * FROM investments AS inv LEFT JOIN founds AS fo ON fo.idClient = inv.idClient WHERE inv.id = ? GROUP BY fo.invertion").getQuery(idClient);
+        ResultSet result = new Query("SELECT * FROM investments AS inv LEFT JOIN founds AS fo ON fo.idClient = inv.idClient WHERE inv.id = ? GROUP BY inv.numberTitles").getQuery(idClient);
         return result;
     }
 }
