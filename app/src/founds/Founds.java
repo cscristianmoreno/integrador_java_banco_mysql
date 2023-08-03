@@ -3,6 +3,7 @@ package founds;
 import java.time.Instant;
 
 import createNumberFormat.CreateNumberFormat;
+import investments.Investments;
 // import investments.Investments;
 import mysql.Query;
 import randomNum.RandomNum;
@@ -71,8 +72,8 @@ public class Founds {
         percentSuccefully,
         format.setFormat(gainWithSuccefully));
 
-        // Investments investments = new Investments(title, value);
-        // investments.createInvertion();
+        Investments investments = new Investments(idClient, title, value);
+        investments.createInvertion();
             
         return rent;
     }

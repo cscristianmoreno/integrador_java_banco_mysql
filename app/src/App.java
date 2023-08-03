@@ -10,7 +10,7 @@ import mysql.Query;
 import createNumberFormat.CreateNumberFormat;
 import creditsCard.CreditsCard;
 import founds.Founds;
-// import investments.Investments;
+import investments.Investments;
 
 public class App {
     static CreateNumberFormat format;
@@ -117,6 +117,8 @@ public class App {
                                 System.out.println("No existe ningún cliente asociado a este DNI");
                                 generateExitOption(scanner);
                             }
+
+                            result.close();
                         }
                         catch (SQLException e) {
                             System.out.println(e.getMessage());
@@ -198,7 +200,7 @@ public class App {
                                         case 1, 2: {
                                             try {
                                                 System.out.println();
-                                                System.out.printf("Escribe el monto de dinero que deseas %s:\n\n0. Volver al menú principal", 
+                                                System.out.printf("Escribe el monto de dinero que deseas %s:\n\n0. Volver al menú principal\n", 
                                                 (selected == 1) ? "retirar" : "ingresar");
 
                                                 scannerValue = scanner.nextLine();
@@ -249,6 +251,7 @@ public class App {
                                                 System.out.println();
                                                 System.out.println("- Al ingresa dinero, el valor introducido es muy grande");
                                                 System.out.println("- Al retirar dinero, el valor introducido supera tu dinero actual");
+                                                generateExitOption(scanner);
                                             }
 
                                             break;
@@ -305,6 +308,7 @@ public class App {
                                                     System.out.println("* MIS INVERSIONES");
                                                     dni = result.getString("dni");
 
+                                                    result.close();
                                                     result = new Clients().getClient(dni);
 
                                                     int num = 0;
@@ -329,6 +333,7 @@ public class App {
                                                         System.out.println(invertions);
                                                     }
 
+                                                    result.close();
                                                     generateExitOption(scanner);
                                                     break;
 
@@ -338,7 +343,25 @@ public class App {
                                             break;
                                         }
                                         case 4: {
-                                            // result = new Investments().getInvertion(idClient);
+                                            result.close();
+                                            result = new Investments().getInvertion(idClient);
+
+                                            System.out.println("* MI CARTERA DE VALORES");
+
+                                            while (result.next()) {
+                                                System.out.println();
+                                                System.out.printf("\nCARTERA #%d\n- Nombre del valor: %s\n- Inversión: $%s\n- Número de títulos: %d\n- Precio de cotización: $%s\n- Porcentaje de la cotización: %d%%",
+                                                    result.getInt("inv.id"),
+                                                    result.getString("inv.nameValue"),
+                                                    format.setFormat(result.getInt("fo.invertion")),
+                                                    result.getInt("inv.numberTitles"),
+                                                    format.setFormat(result.getInt("inv.priceCotization")),
+                                                    result.getInt("inv.percentCotization")
+                                                );
+                                            }
+                                            
+                                            result.close();
+                                            generateExitOption(scanner);
                                             break;
                                         }
                                         case 5: {
@@ -371,7 +394,6 @@ public class App {
 
                                                     creditsCard.createCreditCard();
                                                     generateExitOption(scanner);
-
                                                     break;
                                                 }
                                             }
@@ -415,6 +437,8 @@ public class App {
                                 generateExitOption(scanner);
 
                             }
+
+                            result.close();
                         }
                         catch (SQLException e) {
                             
@@ -440,6 +464,7 @@ public class App {
                                 );
                             }
 
+                            result.close();
                             generateExitOption(scanner);
                         }
                         catch (SQLException e) {
@@ -475,6 +500,7 @@ public class App {
 
                             }
                             
+                            result.close();
                             generateExitOption(scanner);
                         }
                         catch (SQLException e) {
@@ -610,6 +636,7 @@ public class App {
                         );
                     }
 
+                    result.close();
                     generateExitOption(scanner);
                 }
                 catch (SQLException e) {

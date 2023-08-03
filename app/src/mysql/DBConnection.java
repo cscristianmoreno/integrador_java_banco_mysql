@@ -105,7 +105,8 @@ public class DBConnection {
                     "idClient int(11) NOT NULL," +
                     "nameValue varchar(32) NOT NULL," +   
                     "numberTitles int(11) NOT NULL," +                  
-                    "priceCotization varchar(11) NOT NULL" +
+                    "priceCotization int(11) NOT NULL," +
+                    "percentCotization int(11) NOT NULL" +
                 ");";
 
             this.sql.execute(query);
