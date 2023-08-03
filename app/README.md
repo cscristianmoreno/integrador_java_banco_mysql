@@ -1,6 +1,7 @@
 ## INTRODUCCIÓN
 
-- BANCO
+- Banco realizado con MYSQL y JDBC.
+- Las tablas deben ser creadas desde el menú de opciones.
 
 ## CLASES
 - CUENTAS BANCARIAS (AccountsBank.java)
@@ -8,8 +9,6 @@
 - TARJETA DE CRÉDITOS (CreditsCard.java)
 - FONDOS DE INVERSIÓN (Founds.java)
 - CARTERA DE VALORES (Invetsments.java)
-
-## FUNCIÓNES
 
 ## CLIENTES
 - Un cliente puede registrarse en el banco.
